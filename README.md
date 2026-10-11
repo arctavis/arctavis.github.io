@@ -20,3 +20,11 @@ Open http://localhost:8000. No build, API key, wallet connection, or third-party
 The embedded gallery records in `gallery.js` and static cards in `index.html` reflect the same 15 records. When updating the collection, update both as well as the data files. The static cards remain accessible without JavaScript; search and the modal viewer require JavaScript.
 
 External explorer availability only affects outbound inscription links, not the exhibition images. The site is a showcase; it does not list NFTs for sale, sign transactions, or make ownership assertions. The other two series chapters are mentioned using the supplied metadata but are not represented as available exhibits.
+
+
+## II. Digital Fossils
+
+15 original Litecoin inscriptions, works 016–030, displayed at `digital-fossils.html`.
+Collection metadata: `data/digital-fossils/meta.json`. Inscription manifest: `data/digital-fossils/inscriptions.json`. Gallery data: `data/digital-fossils/artworks.json`. SVG originals are stored without modification in `assets/art/016.svg` through `030.svg`.
+
+Number 028 is Forge of the Republic (d91de0…d6d4i0); number 029 is The Cold Wallet Relic (a57a09…e05bi0), per the artist’s correction. No description was supplied for number 030, so its description is left empty. English descriptions translate the artist’s Russian descriptions, which are retained alongside them.

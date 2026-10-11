@@ -1,0 +1,392 @@
+[
+  {
+    "id": "2e961736caea074171cc741a2cbfac220d20328dc3fa27b3d312ce416a71826di0",
+    "meta": {
+      "name": "DIGITAL FOSSILS #016 — Fossil of Block Zero",
+      "description": "The fossilized block zero.",
+      "description_ru": "Окаменевший нулевой блок.",
+      "attributes": [
+        {
+          "trait_type": "Artist",
+          "value": "Arctavis"
+        },
+        {
+          "trait_type": "Chapter",
+          "value": "II. DIGITAL FOSSILS"
+        },
+        {
+          "trait_type": "Style",
+          "value": "Mid-poly crystal architecture"
+        },
+        {
+          "trait_type": "Number",
+          "value": 16
+        }
+      ]
+    }
+  },
+  {
+    "id": "0e530b6509a0a49666bb7f0b7c9aae92cf907e782345bf24c5904c7d52a3e59ei0",
+    "meta": {
+      "name": "DIGITAL FOSSILS #017 — Hash Fragment #A1 — The Ancient Code",
+      "description": "A fragment of an ancient hash.",
+      "description_ru": "Фрагмент древнего хэша.",
+      "attributes": [
+        {
+          "trait_type": "Artist",
+          "value": "Arctavis"
+        },
+        {
+          "trait_type": "Chapter",
+          "value": "II. DIGITAL FOSSILS"
+        },
+        {
+          "trait_type": "Style",
+          "value": "Mid-poly crystal architecture"
+        },
+        {
+          "trait_type": "Number",
+          "value": 17
+        }
+      ]
+    }
+  },
+  {
+    "id": "c5952f9c5e81bcbbe34f5d776b0b84189d539c97d7789c6741d2cc065959281ci0",
+    "meta": {
+      "name": "DIGITAL FOSSILS #018 — Salt of the Miners — Digital Ore",
+      "description": "Digital proof-of-work ore.",
+      "description_ru": "Цифровая руда PoW.",
+      "attributes": [
+        {
+          "trait_type": "Artist",
+          "value": "Arctavis"
+        },
+        {
+          "trait_type": "Chapter",
+          "value": "II. DIGITAL FOSSILS"
+        },
+        {
+          "trait_type": "Style",
+          "value": "Mid-poly crystal architecture"
+        },
+        {
+          "trait_type": "Number",
+          "value": 18
+        }
+      ]
+    }
+  },
+  {
+    "id": "f68c0548064a1b3c2d74283998a36945e2700ae6f93e50362aabab83d438af28i0",
+    "meta": {
+      "name": "DIGITAL FOSSILS #019 — MWEB Crystal Delta",
+      "description": "Crystals of privacy.",
+      "description_ru": "Кристаллы приватности.",
+      "attributes": [
+        {
+          "trait_type": "Artist",
+          "value": "Arctavis"
+        },
+        {
+          "trait_type": "Chapter",
+          "value": "II. DIGITAL FOSSILS"
+        },
+        {
+          "trait_type": "Style",
+          "value": "Mid-poly crystal architecture"
+        },
+        {
+          "trait_type": "Number",
+          "value": 19
+        }
+      ]
+    }
+  },
+  {
+    "id": "afbd334b7933036d3c610f2a5d7daaa90fb5d1943f638110fcedd967497ff7eei0",
+    "meta": {
+      "name": "DIGITAL FOSSILS #020 — Silver Quartz — Litecoin Ore",
+      "description": "The primordial mineral of the silver chain.",
+      "description_ru": "Первичный минерал серебряной цепи.",
+      "attributes": [
+        {
+          "trait_type": "Artist",
+          "value": "Arctavis"
+        },
+        {
+          "trait_type": "Chapter",
+          "value": "II. DIGITAL FOSSILS"
+        },
+        {
+          "trait_type": "Style",
+          "value": "Mid-poly crystal architecture"
+        },
+        {
+          "trait_type": "Number",
+          "value": 20
+        }
+      ]
+    }
+  },
+  {
+    "id": "78bd6b7bcaa39f5ac23024b6eee27ddeb5752c9629915f6969770e09c48bcfc4i0",
+    "meta": {
+      "name": "DIGITAL FOSSILS #021 — Genesis Shard of 2011",
+      "description": "A shard of the first year.",
+      "description_ru": "Осколок первого года.",
+      "attributes": [
+        {
+          "trait_type": "Artist",
+          "value": "Arctavis"
+        },
+        {
+          "trait_type": "Chapter",
+          "value": "II. DIGITAL FOSSILS"
+        },
+        {
+          "trait_type": "Style",
+          "value": "Mid-poly crystal architecture"
+        },
+        {
+          "trait_type": "Number",
+          "value": 21
+        }
+      ]
+    }
+  },
+  {
+    "id": "0098dda4f428de750a7fd74564d39459e65b490b38b602c52f359d994eed3301i0",
+    "meta": {
+      "name": "DIGITAL FOSSILS #022 — Blockfossil #2017",
+      "description": "Layers of the SegWit era.",
+      "description_ru": "Слои эпохи SegWit.",
+      "attributes": [
+        {
+          "trait_type": "Artist",
+          "value": "Arctavis"
+        },
+        {
+          "trait_type": "Chapter",
+          "value": "II. DIGITAL FOSSILS"
+        },
+        {
+          "trait_type": "Style",
+          "value": "Mid-poly crystal architecture"
+        },
+        {
+          "trait_type": "Number",
+          "value": 22
+        }
+      ]
+    }
+  },
+  {
+    "id": "b8eb9782921b4eeca23cc4adf91549e809f583b23a61851cb604c756f6ab220ci0",
+    "meta": {
+      "name": "DIGITAL FOSSILS #023 — Halving Fossil — Scarcity Core",
+      "description": "The core of scarcity.",
+      "description_ru": "Ядро дефицита.",
+      "attributes": [
+        {
+          "trait_type": "Artist",
+          "value": "Arctavis"
+        },
+        {
+          "trait_type": "Chapter",
+          "value": "II. DIGITAL FOSSILS"
+        },
+        {
+          "trait_type": "Style",
+          "value": "Mid-poly crystal architecture"
+        },
+        {
+          "trait_type": "Number",
+          "value": 23
+        }
+      ]
+    }
+  },
+  {
+    "id": "54d3d025312954b114d8e28effb069a0506c5cd85b9651b721304e3a76114964i0",
+    "meta": {
+      "name": "DIGITAL FOSSILS #024 — Iron Hash Cinder",
+      "description": "Proof-of-work ash, polygonal structures.",
+      "description_ru": "Пепел PoW, полигональные структуры.",
+      "attributes": [
+        {
+          "trait_type": "Artist",
+          "value": "Arctavis"
+        },
+        {
+          "trait_type": "Chapter",
+          "value": "II. DIGITAL FOSSILS"
+        },
+        {
+          "trait_type": "Style",
+          "value": "Mid-poly crystal architecture"
+        },
+        {
+          "trait_type": "Number",
+          "value": 24
+        }
+      ]
+    }
+  },
+  {
+    "id": "f79c6831f84118e257d65b190d916a7dc9a23191a37423f898c6975143eb57b8i0",
+    "meta": {
+      "name": "DIGITAL FOSSILS #025 — Lightning Relic",
+      "description": "Fossilized lightning.",
+      "description_ru": "Окаменевшая молния.",
+      "attributes": [
+        {
+          "trait_type": "Artist",
+          "value": "Arctavis"
+        },
+        {
+          "trait_type": "Chapter",
+          "value": "II. DIGITAL FOSSILS"
+        },
+        {
+          "trait_type": "Style",
+          "value": "Mid-poly crystal architecture"
+        },
+        {
+          "trait_type": "Number",
+          "value": 25
+        }
+      ]
+    }
+  },
+  {
+    "id": "9726afd2393e25049c13ba458794c4d4a4841378f101c00f2b77a1b74b3dfd6fi0",
+    "meta": {
+      "name": "DIGITAL FOSSILS #026 — Miner’s Crown — Proof of Work Relic",
+      "description": "A miner’s relic.",
+      "description_ru": "Реликт шахтёра.",
+      "attributes": [
+        {
+          "trait_type": "Artist",
+          "value": "Arctavis"
+        },
+        {
+          "trait_type": "Chapter",
+          "value": "II. DIGITAL FOSSILS"
+        },
+        {
+          "trait_type": "Style",
+          "value": "Mid-poly crystal architecture"
+        },
+        {
+          "trait_type": "Number",
+          "value": 26
+        }
+      ]
+    }
+  },
+  {
+    "id": "811cccf20386343a58cb80759c8c2a53292985b0643e47f0ca3f7d4cb6a8c715i0",
+    "meta": {
+      "name": "DIGITAL FOSSILS #027 — MWEB Obsidian Gate",
+      "description": "A private portal.",
+      "description_ru": "Приватный портал.",
+      "attributes": [
+        {
+          "trait_type": "Artist",
+          "value": "Arctavis"
+        },
+        {
+          "trait_type": "Chapter",
+          "value": "II. DIGITAL FOSSILS"
+        },
+        {
+          "trait_type": "Style",
+          "value": "Mid-poly crystal architecture"
+        },
+        {
+          "trait_type": "Number",
+          "value": 27
+        }
+      ]
+    }
+  },
+  {
+    "id": "d91de0cfe81628a015026f4b356dc44102c2f1b2ae5b82c271eb631199d7d6d4i0",
+    "meta": {
+      "name": "DIGITAL FOSSILS #028 — Forge of the Republic",
+      "description": "A digital forge.",
+      "description_ru": "Цифровая кузница.",
+      "attributes": [
+        {
+          "trait_type": "Artist",
+          "value": "Arctavis"
+        },
+        {
+          "trait_type": "Chapter",
+          "value": "II. DIGITAL FOSSILS"
+        },
+        {
+          "trait_type": "Style",
+          "value": "Mid-poly crystal architecture"
+        },
+        {
+          "trait_type": "Number",
+          "value": 28
+        }
+      ]
+    }
+  },
+  {
+    "id": "a57a0968343f48f5f5e6f1b1ac98e9619e8aa2e3a0063a0d665a2ccea432e05bi0",
+    "meta": {
+      "name": "DIGITAL FOSSILS #029 — The Cold Wallet Relic",
+      "description": "A fossilized vault.",
+      "description_ru": "Окаменевший сейф.",
+      "attributes": [
+        {
+          "trait_type": "Artist",
+          "value": "Arctavis"
+        },
+        {
+          "trait_type": "Chapter",
+          "value": "II. DIGITAL FOSSILS"
+        },
+        {
+          "trait_type": "Style",
+          "value": "Mid-poly crystal architecture"
+        },
+        {
+          "trait_type": "Number",
+          "value": 29
+        }
+      ]
+    }
+  },
+  {
+    "id": "a48bb8c3a641b4b5b92b8fd12f4f707d784d60eefedb805ed300ebba89339a26i0",
+    "meta": {
+      "name": "DIGITAL FOSSILS #030 — Block Summit — The Eternal Peak",
+      "description": "",
+      "description_ru": "",
+      "attributes": [
+        {
+          "trait_type": "Artist",
+          "value": "Arctavis"
+        },
+        {
+          "trait_type": "Chapter",
+          "value": "II. DIGITAL FOSSILS"
+        },
+        {
+          "trait_type": "Style",
+          "value": "Mid-poly crystal architecture"
+        },
+        {
+          "trait_type": "Number",
+          "value": 30
+        }
+      ]
+    }
+  }
+]
