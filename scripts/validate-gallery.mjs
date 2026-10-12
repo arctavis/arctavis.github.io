@@ -17,7 +17,7 @@ const chapters = [
 const errors = [];
 const seen = new Set();
 const load = p => JSON.parse(readFileSync(p, 'utf8'));
-const plain = v => String(v ?? '').trim().toLowerCase().replace(/\\s+/g, ' ');
+const plain = v => String(v ?? '').trim().toLowerCase().replace(/\s+/g, ' ');
 const check = (ok, message) => { if (!ok) errors.push(message); };
 
 for (const chapter of chapters) {
@@ -29,7 +29,7 @@ for (const chapter of chapters) {
   check(artworks.length === count, `${chapter.label}: expected ${count} artworks, found ${artworks.length}`);
   check(inscriptions.length === count, `${chapter.label}: expected ${count} inscription records`);
   const byId = new Map(inscriptions.map(x => [x.id, x]));
-  const cards = html.match(/<article\\s+class="card"/g) || [];
+  const cards = html.match(/<article\s+class="card"/g) || [];
   check(cards.length === count, `${chapter.label}: expected ${count} static gallery cards, found ${cards.length}`);
   for (let idx = 0; idx < artworks.length; idx++) {
     const a = artworks[idx];
@@ -53,7 +53,7 @@ for (const chapter of chapters) {
     check(existsSync(image), `#${padded}: local SVG not found`);
     if (existsSync(image)) {
       const svg = readFileSync(image, 'utf8');
-      check(/<svg(?:\\s|>)/i.test(svg), `#${padded}: file does not contain an SVG root`);
+      check(/<svg(?:\s|>)/i.test(svg), `#${padded}: file does not contain an SVG root`);
     }
     if (a.description != null && record?.meta?.description != null)
       check(a.description === record.meta.description, `#${padded}: description mismatch`);
