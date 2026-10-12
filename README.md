@@ -28,3 +28,18 @@ External explorer availability only affects outbound inscription links, not the 
 Collection metadata: `data/digital-fossils/meta.json`. Inscription manifest: `data/digital-fossils/inscriptions.json`. Gallery data: `data/digital-fossils/artworks.json`. SVG originals are stored without modification in `assets/art/016.svg` through `030.svg`.
 
 Number 028 is Forge of the Republic (d91de0…d6d4i0); number 029 is The Cold Wallet Relic (a57a09…e05bi0), per the artist’s correction. No description was supplied for number 030, so its description is left empty. English descriptions translate the artist’s Russian descriptions, which are retained alongside them.
+
+## Current chapter status and validation
+
+- **Historical Genesis:** 15 exhibited works (#001–015).
+- **Digital Fossils:** 15 exhibited works (#016–030). #028 is **Forge of the Republic** and #029 is **The Cold Wallet Relic**.
+- **American Symbols of Innovation:** 12 planned works (#031–042), **not yet uploaded**. No placeholder art or invented inscription IDs are published.
+- Description text for #030 was not supplied; it is intentionally left empty.
+
+Check integrity of the two published chapters:
+
+```sh
+node scripts/validate-gallery.mjs
+```
+
+The validator checks sequential artwork numbers, unique inscription IDs, correct metadata, HTML/JavaScript records, and existence of local SVG assets. This local test does not verify on-chain ownership or explorer uptime.
