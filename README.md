@@ -1,6 +1,6 @@
-# Arctavis — Historical Genesis
+# Arctavis — Three Chapters of Litecoin Art
 
-Static, dependency-free exhibition for **I. Historical Genesis — A New Era**. Includes 15 local SVG works, a searchable gallery, artwork viewer with keyboard navigation, links to Litecoin inscription records, and the original support address.
+Static, dependency-free exhibition for the three-chapter **Arctavis** collection. Includes 42 original onchain SVG artworks, searchable chapter galleries, accessible artwork viewers, inscription links, and the original support address.
 
 ## Run locally
 
@@ -17,9 +17,9 @@ Open http://localhost:8000. No build, API key, wallet connection, or third-party
 - `assets/art/001.svg` through `015.svg`: unmodified SVG content retrieved from `https://ordliteverse.com/content/{inscription_id}`.
 - `assets/cover.jpg`: social preview derived from work 001; originals remain SVG.
 
-The embedded gallery records in `gallery.js` and static cards in `index.html` reflect the same 15 records. When updating the collection, update both as well as the data files. The static cards remain accessible without JavaScript; search and the modal viewer require JavaScript.
+The HTML pages contain static cards, which remain accessible without JavaScript. The first two chapters embed gallery records in JavaScript; Chapter III reads its records from `data/american-symbols/artworks.json`. Search and in-page artwork viewers require JavaScript.
 
-External explorer availability only affects outbound inscription links, not the exhibition images. The site is a showcase; it does not list NFTs for sale, sign transactions, or make ownership assertions. The other two series chapters are mentioned using the supplied metadata but are not represented as available exhibits.
+External explorer availability only affects outbound inscription links, not the exhibition images. The site is a showcase; it does not list NFTs for sale, sign transactions, or make ownership assertions. All three chapters are represented as available exhibits.
 
 
 ## II. Digital Fossils
@@ -29,17 +29,25 @@ Collection metadata: `data/digital-fossils/meta.json`. Inscription manifest: `da
 
 Number 028 is Forge of the Republic (d91de0…d6d4i0); number 029 is The Cold Wallet Relic (a57a09…e05bi0), per the artist’s correction. No description was supplied for number 030, so its description is left empty. English descriptions translate the artist’s Russian descriptions, which are retained alongside them.
 
+## III. American Symbols of Innovation
+
+Twelve original Litecoin inscriptions, works 031–042, shown in [American Symbols of Innovation](american-symbols.html). Artwork metadata: `data/american-symbols/artworks.json`, inscription manifest: `data/american-symbols/inscriptions.json`, collection metadata: `data/american-symbols/meta.json`.
+
+The original SVGs were retrieved from Litecoin inscription-content endpoints (`ordliteverse.com/content/{inscription_id}` with `ordinalslite.com/content/{inscription_id}` as fallback), checked for valid SVG format, and stored locally as `assets/art/031.svg` through `042.svg`. Their sources are not substituted with generated artwork.
+
+The finale, #042 **The American Genesis — Union of Liberty & Code**, is highlighted in understated gold as **Genesis Masterpiece · Collection Finale**, an artist-designated distinction. No assertion is made about verified rarity, market value, or sale price.
+
 ## Current chapter status and validation
 
-- **Historical Genesis:** 15 exhibited works (#001–015).
-- **Digital Fossils:** 15 exhibited works (#016–030). #028 is **Forge of the Republic** and #029 is **The Cold Wallet Relic**.
-- **American Symbols of Innovation:** 12 planned works (#031–042), **not yet uploaded**. No placeholder art or invented inscription IDs are published.
-- Description text for #030 was not supplied; it is intentionally left empty.
+- **Historical Genesis:** 15 works (#001–015), all SVG originals stored locally.
+- **Digital Fossils:** 15 works (#016–030), all SVG originals stored locally. #028 is **Forge of the Republic** and #029 is **The Cold Wallet Relic**.
+- **American Symbols of Innovation:** 12 works (#031–042), all SVG originals stored locally.
+- Description for #030 was not supplied, so it remains blank.
 
-Check integrity of the two published chapters:
+To check all 42 inscription IDs, SVG files, artwork sequences, JSON records, and static gallery cards, run:
 
 ```sh
 node scripts/validate-gallery.mjs
 ```
 
-The validator checks sequential artwork numbers, unique inscription IDs, correct metadata, HTML/JavaScript records, and existence of local SVG assets. This local test does not verify on-chain ownership or explorer uptime.
+The validation checks website integrity and SVG syntax; it does not independently authenticate onchain ownership, rarity or monetary value. A one-shot import workflow exists at `.github/workflows/import-american-symbols.yml` to retrieve and validate original inscriptions again if needed.
