@@ -1,0 +1,76 @@
+name: Import American Symbols original SVGs
+on:
+  push:
+    paths:
+      - '.github/workflows/import-american-symbols.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  import-originals:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - name: Retrieve and validate onchain originals
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          from xml.etree import ElementTree as ET
+          import json, subprocess
+          records = json.loads(Path("data/american-symbols/artworks.json").read_text())
+          for art in records:
+              number = art["number"]
+              inscription_id = art["id"]
+              dst = Path(f"assets/art/{number:03d}.svg")
+              success = False
+              for provider in ("https://ordliteverse.com/content/", "https://ordinalslite.com/content/"):
+                  url = provider + inscription_id
+                  cp = subprocess.run(["curl","-fL","--connect-timeout","12","--max-time","35","--retry","2","--retry-delay","2","-A","Mozilla/5.0","-o",str(dst),url], capture_output=True, text=True)
+                  if cp.returncode != 0:
+                      print(f"{number}: provider unreachable: {provider} ({cp.stderr.strip()[-160:]})", flush=True)
+                      continue
+                  try:
+                      data = dst.read_bytes()
+                      if not 100 <= len(data) <= 5_000_000: raise ValueError(f"unexpected size {len(data)}")
+                      root = ET.fromstring(data)
+                      if not root.tag.endswith("svg"): raise ValueError(f"not SVG: {root.tag}")
+                      print(f"{number}: retrieved original SVG ({len(data)} bytes) from {provider}", flush=True)
+                      success = True
+                      break
+                  except Exception as e:
+                      print(f"{number}: invalid SVG at {provider}: {e}", flush=True)
+              if not success:
+                  dst.unlink(missing_ok=True)
+                  raise SystemExit(f"FAILED: original SVG #{number} could not be downloaded or validated; nothing published")
+          PY
+      - name: Point exhibition to verified local originals
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          import json
+          from pathlib import Path
+          path = Path("data/american-symbols/artworks.json")
+          artworks = json.loads(path.read_text())
+          html_path = Path("american-symbols.html")
+          html = html_path.read_text()
+          for art in artworks:
+              original = "https://ordliteverse.com/content/" + art["id"]
+              local = f"assets/art/{art['number']:03d}.svg"
+              if original not in html: raise SystemExit(f"Missing expected image source for #{art['number']}")
+              html = html.replace('src="'+original+'"', 'src="'+local+'"')
+              art["image"] = local
+          html_path.write_text(html)
+          path.write_text(json.dumps(artworks,ensure_ascii=False,indent=2)+"\n")
+          PY
+      - name: Commit verified original artworks
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/art/0{31..42}.svg data/american-symbols/artworks.json american-symbols.html
+          if ! git diff --cached --quiet; then
+            git commit -m "Store original American Symbols onchain SVGs locally"
+            git push
+          fi
