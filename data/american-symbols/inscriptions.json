@@ -21,7 +21,8 @@
           "trait_type": "Number",
           "value": 31
         }
-      ]
+      ],
+      "description": "The Statue of Liberty reimagined as a monumental polygonal hash artifact."
     }
   },
   {
@@ -46,7 +47,8 @@
           "trait_type": "Number",
           "value": 32
         }
-      ]
+      ],
+      "description": "An American eagle formed from sharp pyramidal polygons — the wings of proof of work."
     }
   },
   {
@@ -71,7 +73,8 @@
           "trait_type": "Number",
           "value": 33
         }
-      ]
+      ],
+      "description": "Silicon Valley represented as a geometric guardian of technological innovation."
     }
   },
   {
@@ -96,7 +99,8 @@
           "trait_type": "Number",
           "value": 34
         }
-      ]
+      ],
+      "description": "A proof-of-work reimagining of the American Bill of Rights."
     }
   },
   {
@@ -121,7 +125,8 @@
           "trait_type": "Number",
           "value": 35
         }
-      ]
+      ],
+      "description": "A blockchain node depicted as a monumental, immutable column."
     }
   },
   {
@@ -146,7 +151,8 @@
           "trait_type": "Number",
           "value": 36
         }
-      ]
+      ],
+      "description": "The American cowboy frontier reinterpreted through circuitry and blockchain links."
     }
   },
   {
@@ -171,7 +177,8 @@
           "trait_type": "Number",
           "value": 37
         }
-      ]
+      ],
+      "description": "The Liberty Bell formed from cryptographic hashes."
     }
   },
   {
@@ -196,7 +203,8 @@
           "trait_type": "Number",
           "value": 38
         }
-      ]
+      ],
+      "description": "Atomic energy transformed into a monument to digital scalability."
     }
   },
   {
@@ -221,7 +229,8 @@
           "trait_type": "Number",
           "value": 39
         }
-      ]
+      ],
+      "description": "Manhattan's skyline built from mid-poly geometric blocks."
     }
   },
   {
@@ -246,7 +255,8 @@
           "trait_type": "Number",
           "value": 40
         }
-      ]
+      ],
+      "description": "A monumental tribute to Litecoin, digital silver."
     }
   },
   {
@@ -271,7 +281,8 @@
           "trait_type": "Number",
           "value": 41
         }
-      ]
+      ],
+      "description": "An iron worker of the chain — a monument to miners and proof of work."
     }
   },
   {
@@ -296,7 +307,8 @@
           "trait_type": "Number",
           "value": 42
         }
-      ]
+      ],
+      "description": "The final artifact: a monumental union of American history, culture, liberty and blockchain architecture."
     }
   }
 ]
