@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * Verifies the two published Arctavis chapters against the local SVG assets,
+ * Verifies all three published Arctavis chapters against the local original SVGs,
  * original inscription IDs, metadata, gallery JavaScript and static HTML.
  * Uses Node.js built-ins; no network access or dependencies required.
  */
@@ -13,6 +13,10 @@ const chapters = [
     artworks: 'data/digital-fossils/artworks.json',
     inscriptions: 'data/digital-fossils/inscriptions.json',
     page: 'digital-fossils.html', js: 'digital-fossils.js' },
+  { label: 'American Symbols of Innovation', start: 31, end: 42,
+    artworks: 'data/american-symbols/artworks.json',
+    inscriptions: 'data/american-symbols/inscriptions.json',
+    page: 'american-symbols.html', js: 'american-symbols.js', dynamic: true },
 ];
 const errors = [];
 const seen = new Set();
@@ -29,7 +33,7 @@ for (const chapter of chapters) {
   check(artworks.length === count, `${chapter.label}: expected ${count} artworks, found ${artworks.length}`);
   check(inscriptions.length === count, `${chapter.label}: expected ${count} inscription records`);
   const byId = new Map(inscriptions.map(x => [x.id, x]));
-  const cards = html.match(/<article\s+class="card"/g) || [];
+  const cards = html.match(/<article\s+class="card(?:\s+finale)?"/g) || [];
   check(cards.length === count, `${chapter.label}: expected ${count} static gallery cards, found ${cards.length}`);
   for (let idx = 0; idx < artworks.length; idx++) {
     const a = artworks[idx];
@@ -49,7 +53,12 @@ for (const chapter of chapters) {
       `#${padded}: inscription sequence number differs`);
     check(html.includes(`data-number="${num}"`), `#${padded}: missing static card`);
     check(html.includes(image), `#${padded}: missing static image reference`);
-    check(js.includes(a.id), `#${padded}: missing gallery JavaScript data`);
+    if (chapter.dynamic) {
+      check(js.includes(chapter.artworks), `#${padded}: JavaScript must load artwork data`);
+      check(html.includes(a.id), `#${padded}: missing static inscription link`);
+    } else {
+      check(js.includes(a.id), `#${padded}: missing gallery JavaScript data`);
+    }
     check(existsSync(image), `#${padded}: local SVG not found`);
     if (existsSync(image)) {
       const svg = readFileSync(image, 'utf8');
@@ -58,7 +67,7 @@ for (const chapter of chapters) {
     if (a.description != null && record?.meta?.description != null)
       check(a.description === record.meta.description, `#${padded}: description mismatch`);
   }
-  console.log(`✓ ${chapter.label}: ${artworks.length} works checked`);
+  console.log(`✓ ${chapter.label}: ${artworks.length} original SVGs, inscriptions and metadata checked`);
 }
 if (errors.length) {
   console.error('\n' + errors.map(e => '✗ ' + e).join('\n'));
