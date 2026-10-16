@@ -1,4 +1,4 @@
-const { chromium } = require('playwright');
+const { chromium, firefox } = require('playwright');
 const fs = require('node:fs');
 const path = require('node:path');
 
@@ -59,6 +59,32 @@ async function check(page, chapter) {
         issues.push('Bad SVG '+img.src+' '+img.width+'x'+img.height+' decode='+img.decode);
     }
     console.log('ARTWORK '+channel+' '+chapter.name+' '+JSON.stringify(artwork));
+    const pixels = await page.evaluate(() => {
+      const result = [];
+      const images = [...document.querySelectorAll('img[src*="assets/art/"]')];
+      for (const img of images) {
+        try {
+          const canvas = document.createElement('canvas');
+          canvas.width = 48; canvas.height = 48;
+          const context = canvas.getContext('2d', {willReadFrequently:true});
+          context.drawImage(img, 0, 0, 48, 48);
+          const data = context.getImageData(0, 0, 48, 48).data;
+          let visible = 0; let differences = 0; let first = '';
+          for (let i=0;i<data.length;i+=4) {
+            if(data[i+3] >= 30) visible++;
+            const color = data[i]+','+data[i+1]+','+data[i+2]+','+data[i+3];
+            if (!first) first=color;
+            if (color !== first) differences++;
+          }
+          result.push({src:img.getAttribute('src'),visible,variation:differences});
+        } catch(e) { result.push({src:img.getAttribute('src'),error:e.message}); }
+      }
+      return result;
+    });
+    console.log('PIXELS '+channel+' '+chapter.name+' '+JSON.stringify(pixels));
+    for (const p of pixels) if(p.visible===0 || p.variation===0 || p.error)
+      issues.push('SVG visually empty/uniform or rasterization error '+JSON.stringify(p));
+
 
     const first = page.locator('#gallery .art-open').first();
     await first.click({ timeout: 12000 });
@@ -101,7 +127,7 @@ async function check(page, chapter) {
 }
 
 (async function main() {
-  const browser = await chromium.launch({channel,headless:true,args:['--disable-dev-shm-usage']});
+  const browser = channel === 'firefox' ? await firefox.launch({headless:true}) : await chromium.launch({channel,headless:true,args:['--disable-dev-shm-usage']});
   try {
     for (const chapter of chapters) {
       const context = await browser.newContext({
