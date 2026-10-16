@@ -69,7 +69,7 @@ async function check(page, chapter) {
     });
     if (modalImage.width === 0) issues.push('Modal image does not render '+JSON.stringify(modalImage));
     await page.locator('#close-viewer').click({timeout:10000});
-    await page.waitForSelector('#viewer:not([open])', {timeout:10000});
+    await page.locator('#viewer').waitFor({state:'hidden', timeout:10000});
 
     const search = page.locator('#search');
     if (await search.count()) {
