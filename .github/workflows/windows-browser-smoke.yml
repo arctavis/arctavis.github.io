@@ -13,7 +13,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        browser: [msedge, chrome]
+        browser: [firefox]
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -21,6 +21,9 @@ jobs:
           node-version: '22'
       - name: Install Playwright library
         run: npm install --no-save --no-package-lock playwright@1.56.1
+      - name: Install Firefox browser on Windows
+        if: matrix.browser == 'firefox'
+        run: npx playwright install firefox
       - name: Exercise LIVE NFT gallery in Windows browser
         env:
           TEST_BROWSER: ${{ matrix.browser }}
