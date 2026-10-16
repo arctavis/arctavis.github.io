@@ -35,6 +35,26 @@ async function check(page, chapter) {
     const rendered = await page.locator('#gallery .card').count();
     if (rendered !== chapter.count) issues.push('Cards '+rendered+' expected '+chapter.count);
 
+    // Verify Firefox/Windows native lazy loading before forcing image requests.
+    const nativeLazy = [];
+    const thumbList = page.locator('#gallery .card .art-open img');
+    for (const i of [0, Math.floor(chapter.count/2), chapter.count-1]) {
+      const image = thumbList.nth(i);
+      await image.scrollIntoViewIfNeeded({timeout:12000});
+      await page.waitForTimeout(200);
+      const state = await image.evaluate(async img => {
+        let decode = 'ok';
+        try { await Promise.race([img.decode(), new Promise((_, reject) => setTimeout(() => reject(new Error('timeout')), 12000))]); }
+        catch(e) {decode=String(e.message)}
+        return {src:img.getAttribute('src'),loading:img.loading,complete:img.complete,
+                width:img.naturalWidth,height:img.naturalHeight,decode};
+      });
+      nativeLazy.push(state);
+      if(state.width===0 || state.decode!=='ok') issues.push('Native lazy image load failed '+JSON.stringify(state));
+    }
+    console.log('NATIVE_LAZY '+channel+' '+chapter.name+' '+JSON.stringify(nativeLazy));
+    await page.evaluate(() => window.scrollTo(0,0));
+
     // Eagerly decode EVERY local image, including lazy ones below fold.
     // This also catches Windows SVG-specific loading/rasterization errors.
     const artwork = await page.evaluate(async () => {
